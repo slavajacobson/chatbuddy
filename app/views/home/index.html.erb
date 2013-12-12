@@ -1,0 +1,26 @@
+<%= javascript_include_tag "home" %>
+
+<div class="row" style="height:100%;">
+
+    <div id="set_nickname" class="large-12 columns">
+        <%= form_tag({controller: 'home',  action: 'set_nickname' }, {method: 'post', class: 'set_nickname_form' }) do %>
+        
+              
+            
+        
+        
+
+            <div class="row collapse">
+                <div class="small-10 columns">
+                    <%= text_field :nickname, "Nickname", placeholder:"Enter your nickname" %>  
+                </div>
+                <div class="small-2 columns">
+                    <%= submit_tag "Join Chat", class: 'button radius postfix' %>
+                </div>
+            </div>
+            
+        
+        <% end %>
+    </div>
+
+</div>

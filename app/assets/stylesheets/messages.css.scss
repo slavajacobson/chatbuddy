@@ -1,0 +1,212 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+h1, h2, h3, h4 {
+    color:#F7E0AE;
+    font-family:"PoisonedApples";
+}
+.nickname {
+    font-weight:bold;   
+}
+
+.time {
+    font-style:italic;
+    font-size:80%;
+}
+
+#new_message input[type='submit'] {
+    width:100%;
+}
+
+#message_message, #new_message input[type='submit'] {
+    margin-bottom:0px;
+    font-size:18px;
+}
+
+#chat_container {
+    height:400px;
+    position:relative;
+}
+
+#header {
+    height:100px;
+    background-color:#9A8B83;
+    border-bottom:5px solid #C8B699;
+    white-space:nowrap;
+    position:relative;
+}
+
+#title {
+    display: inline-block;
+    margin-top: 25px;
+    padding-left: 15px;
+}
+
+
+
+
+#messages {
+    font-family:'Open Sans';
+    height:100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+    font-size: 18px;
+}
+
+.member_color {
+    border: 1px solid black;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+    top: 8px;
+    left: 8px;
+    border-radius: 9px;
+    box-shadow: 2px 2px 4px 0px rgb(82, 82, 82) inset;
+}
+
+#chat li {
+
+}
+#users_wrapper {
+   height:100%;
+   width:200px;
+   float:right;
+}
+#users li {
+    font-size:150%;
+}
+#users {
+    list-style:none;
+    font-family:'PoisonedApples';
+}
+
+html, body {
+    margin: 0px; 
+    padding: 0px;
+    height:100%;
+}
+
+#signed_in_as {
+    display:inline-block;
+    margin-top: 15px;
+}
+
+.container_label {
+    font-size: 200%;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #C8B699;
+    font-family:'PoisonedApples';
+    position:relative;
+}
+
+#message_input {
+    height:37px;
+    background-color:yellow; 
+}
+
+#users {
+    margin-left: 0px;
+    text-shadow: 2px 2px 6px rgb(172, 160, 160);
+}
+#users > li:nth-child(even) {
+    background-color:#F5E896;   
+}
+#users li {
+    padding-left: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  background: #6B616E;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid #C8B699;
+  background-color:#C8B699;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D5C7B2;
+  border: 2px solid #D5C7B2;
+}
+
+@font-face {
+  font-family: 'PoisonedApples';
+  src:url(asset_path('PoisonedApples.ttf')) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CaviarDreams';
+  src:url(asset_path('CaviarDreams.ttf')) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#tab {
+    position: absolute;
+    bottom: -20px;
+    right: 200px;
+}
+
+#tab li {
+    display: inline-block;
+    border: 1px solid #685348;
+    padding: 10px 30px;
+    border-radius: 20px 0px;
+    background-color: #A79E8F;
+    border-bottom: none;
+}
+
+#tab li:hover {
+    background-color:#D3C3AB;
+    cursor:pointer;
+}
+
+#tab li:active {
+    box-shadow: 2px 2px 5px #8B7B60 inset;
+}
+
+#drawing {
+    position: absolute;
+    top: 0px;
+    display:none;
+}
+#tab li.active {
+    background-color:#C8B699;
+}
+
+.chat-image {
+    height:200px;
+}
+
+#tab li.activity {
+    color: rgb(207, 22, 22);
+}
+
+#erase_drawing {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 10px 15px;
+    background-color: #ECE1D0;
+    border: 1px solid #685348;
+    cursor:pointer;
+}
+
+#erase_drawing:active {
+    box-shadow: 2px 2px 7px rgb(128, 103, 103) inset;
+}
+
+#erase_drawing:hover {
+    background-color: #C9B69A;
+}
+
+.gritter-item.gritter-css3 {
+    background-color: rgba(138, 92, 19, 0.7);
+}

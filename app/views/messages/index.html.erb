@@ -1,0 +1,179 @@
+<script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
+<%= javascript_include_tag "messages" %>
+<%= javascript_include_tag "drawing" %>
+<%= javascript_include_tag "paper-full.min" %>
+
+
+  
+  
+<div id="header">
+    <div id="title">
+        <h1>ChatBuddy </h1>
+    </div>
+    <div id="signed_in_as">
+        <h2> (Signed in as <%= @nickname %>)</h2>
+    </div>
+    <ul id="tab">
+        <li id="chat_tab">
+            Chat
+        </li>
+        <li id="draw_tab">
+            Draw
+        </li>
+        
+    </ul>
+    <br style="clear:both" />
+</div> 
+ 
+
+<div id="chat_container">
+    <div id="users_wrapper">
+        <div class="container_label">Online users</div>
+        <ul id="users">
+            <li>Loading users list...</li>
+            
+        </ul>
+    </div>
+    
+
+    
+    <ul id="messages">
+
+        <% @messages.each do |message| %>
+          <li>
+            <span class="time"><%= message.created_at.to_formatted_s(:short) %></span>
+            <span class="nickname"><%= message.nickname %>:</span>
+            <span class="message"><%= message.message.html_safe %></span>
+          </li>
+        <% end %>
+    </ul>
+    
+    <div id="drawing">
+    
+        <script>
+                        
+                function send_drawing_element_to_server(points) {
+                    
+                        if (!(points == ""))
+                  
+                            $.post( '/messages/add_drawing_element', { element: { coords: { points: points }, nickname: channel.members.me.info.nickname, color: channel.members.me.info.color } } );
+                    
+                }
+                existing_drawing = <%= @drawing.html_safe %>;
+                $(document).ready(function() { 
+                    
+                   //drawExisting(); 
+                    
+                });
+                
+                
+                
+                function drawExisting() {
+
+                    var canvas = document.getElementById('canvas-2');
+                    
+
+                    existing_drawing.forEach(function(element) {
+                    
+                 
+                    
+                        var color = element.color;
+                        var points = JSON.parse(element.coords);
+                        var myPath = new paper.Path();
+                        myPath.strokeColor = '#' + color;
+                        
+                        
+                        $.each(points, function(i, item) {
+
+                            myPath.add(new paper.Point(eval(points[i].x), eval(points[i].y)));
+                        });
+    
+    
+                        
+                        myPath.simplify();
+                        
+                    });  
+                    paper.view.draw();
+                    
+                }
+        </script>
+        <script type="text/paperscript" canvas="canvas-2" id="paperscope-2" data-paper-ignore="true">
+
+            window.drawExisting(); 
+            var path;
+            function onMouseDown(event) {
+            	path = new Path();
+            	path.strokeColor = '#' + channel.members.me.info.color;
+            }
+            
+            function onMouseDrag(event) {
+            	// Every drag event, add a point to the path at the current
+            	// position of the mouse:
+            	path.add(event.point);
+                
+            }
+            
+            function onMouseUp(event) {
+            	// When the mouse is released, simplify it:
+            	
+            	
+            	points = [];
+            	
+            	path.segments.forEach(function(entry) {
+                    //console.log(entry._point);
+                    var x = entry._point._x;
+                    var y = entry._point._y;
+                    points.push({x:x,y:y});
+                });
+    
+            	//test = path;
+            	channel.trigger( "client-draw", { points: points, color: channel.members.me.info.color } );
+            	
+            	window.send_drawing_element_to_server(points);
+            	
+            	path.simplify();
+            }
+            
+
+        </script>
+        
+
+        <canvas id="canvas-2" class="" keepalive="true"></canvas>
+       
+    
+        <%= link_to '', { action:'erase_drawing' }, { confirm: 'Are you sure?',
+          method: "post", remote: true, disable_with: 'loading...', id: 'erase_drawing', class:'fi-page-delete large'} %>
+        
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<div id="message_input">
+    <%= form_for Message.new, remote: true do |f| %>
+    <%= f.hidden_field :nickname, value: @nickname %>
+    
+        <div class="row">
+                <div class="row collapse">
+                    <div class="small-11 columns">
+                      <%= f.text_field :message, placeholder: 'Message' %>
+                    </div>
+                    <div class="small-1 columns">
+                      <%= f.submit "Send", data: { disable_with: "Sending..." }, class: 'button tiny', style:'height: 37px;' %>
+                    </div>
+                </div>
+               
+        </div>
+    
+        
+    
+    <% end %>
+</div> 
