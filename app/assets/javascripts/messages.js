@@ -99,7 +99,7 @@ channel.bind('new_message', function(data) {
     var nickname = data.nickname;
     
     
-    $("#messages").append("<li><span class='time'>" + time + "</span> <span class='nickname'>" + nickname +  ":</span> <span class='message'>" + message + "</span></li>");
+    $("#messages").append("<li><span class='nickname'>" + nickname +  "</span> <div class='message_wrapper'><span class='message_tip'></span><span class='message'><span class='time'>" + time + "</span>" + message + "</span></div></li>");
 
     $("#messages").animate({ scrollTop: $('#messages')[0].scrollHeight}, 1000);
   

@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @nickname ||= session[:nickname]
-    @messages = Message.order("created_at desc").limit(100).reverse
+    @messages = Message.order("created_at desc").limit(20).reverse
     
     @drawing = Drawing.all.to_json
   end

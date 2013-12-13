@@ -6,12 +6,15 @@ h1, h2, h3, h4 {
     font-family:"PoisonedApples";
 }
 .nickname {
-    font-weight:bold;   
+    font-weight:bold;  
+    position: relative;
+    top: -25px;
 }
 
 .time {
     font-style:italic;
     font-size:80%;
+    display:block;
 }
 
 #new_message input[type='submit'] {
@@ -42,7 +45,34 @@ h1, h2, h3, h4 {
     padding-left: 15px;
 }
 
+.message {
+    border: 1px solid black;
+    background-color: #FFEFCD;
+    border-radius: 6px;
+    padding: 5px 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 7px;
+    display: block;
+    box-shadow: 2px 2px 2px #7c7c7c;
+    position: relative;
+    z-index: 5;
+    white-space: normal;
+    max-width: 85%;
+}
 
+.message_tip {
+    border: 1px solid black;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: 0px;
+    top: 23px;
+    display: block;
+    -webkit-transform: rotate(50deg);
+    z-index: -18;
+    background-color: #FFEFCD;
+}
 
 
 #messages {
@@ -51,6 +81,16 @@ h1, h2, h3, h4 {
     overflow-y:auto;
     overflow-x:hidden;
     font-size: 18px;
+    
+}
+
+#messages li {
+    white-space: nowrap;
+}
+
+.message_wrapper {
+    position:relative;
+    display:inline-block;;
 }
 
 .member_color {

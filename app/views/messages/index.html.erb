@@ -41,9 +41,15 @@
 
         <% @messages.each do |message| %>
           <li>
-            <span class="time"><%= message.created_at.to_formatted_s(:short) %></span>
-            <span class="nickname"><%= message.nickname %>:</span>
-            <span class="message"><%= message.message.html_safe %></span>
+            
+            <span class="nickname"><%= message.nickname %></span>
+            <div class="message_wrapper">
+                <span class="message_tip"></span>
+                <span class="message">
+                    <span class="time"><%= message.created_at.to_formatted_s(:short) %></span>
+                    <div><%= message.message.html_safe %></div>
+                </span>
+            </div>
           </li>
         <% end %>
     </ul>
