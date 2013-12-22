@@ -36,10 +36,10 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'capistrano', group: :development
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
@@ -47,3 +47,4 @@ gem 'pusher'
 gem 'foundation-rails'
 gem 'rails_autolink'
 gem "gritter", "1.0.3"
+gem 'rvm-capistrano'
