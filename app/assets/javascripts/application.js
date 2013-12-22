@@ -15,6 +15,5 @@
 //= require foundation
 //= require gritter
 //= require turbolinks
-//= require home
 
 $(function(){ $(document).foundation(); });

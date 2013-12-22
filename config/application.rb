@@ -22,6 +22,6 @@ module ChatBuddy
     
     config.time_zone = 'Eastern Time (US & Canada)'
 
-    config.assets.precompile += ['messages.js', 'paper-full.min.js', 'drawing.js']
+    config.assets.precompile += ['messages.js', 'paper-full.min.js', 'drawing.js', 'home.js']
   end
 end
