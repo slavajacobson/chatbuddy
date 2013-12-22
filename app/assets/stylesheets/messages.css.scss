@@ -6,9 +6,12 @@ h1, h2, h3, h4 {
     font-family:"PoisonedApples";
 }
 .nickname {
-    font-weight:bold;  
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: top;
     position: relative;
-    top: -25px;
+    top: 15px;
+    margin-right: 5px;
 }
 
 .time {
@@ -56,12 +59,9 @@ h1, h2, h3, h4 {
     display: block;
     box-shadow: 2px 2px 2px #7c7c7c;
     position: relative;
-    z-index: 5;
-    white-space: normal;
-    max-width: 85%;
 }
 
-.message_tip {
+.message_wrapper:after {
     border: 1px solid black;
     width: 15px;
     height: 15px;
@@ -85,12 +85,14 @@ h1, h2, h3, h4 {
 }
 
 #messages li {
-    white-space: nowrap;
+    vertical-align:top;
 }
 
 .message_wrapper {
     position:relative;
-    display:inline-block;;
+    display:inline-block;
+    max-width: 75%;
+
 }
 
 .member_color {
