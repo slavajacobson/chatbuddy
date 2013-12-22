@@ -21,5 +21,7 @@ module ChatBuddy
     # config.i18n.default_locale = :de
     
     config.time_zone = 'Eastern Time (US & Canada)'
+
+    config.assets.precompile += ['messages.js', 'paper-full.min.js', 'drawing.js']
   end
 end
