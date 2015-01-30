@@ -6,14 +6,14 @@ set :default_environment, {
 'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 }
 
-server "198.98.52.43", :web, :app, :db, primary: true
+server "209.162.249.44", :web, :app, :db, primary: true
  
 set :application, "chatbuddy"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
-#set :port, "3030"
+set :port, "922"
  
 set :scm, "git"
 set :repository, "git@github.com:slavajacobson/chatbuddy.git"
